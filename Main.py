@@ -70,12 +70,12 @@ df_pop_den = pd.DataFrame(df_geo, columns=['Location','Province','population','d
 df_pop_den.drop_duplicates()
 
 
-df_pop_den["Sighting Odds %"] = df_pop_den["freq_count"].div(df_pop_den["Population Density"].values)
+df_pop_den["Odds of Ufo Factor"] = df_pop_den["freq_count"].div(df_pop_den["Population Density"].values)
 
-df_pop_den['Sighting Odds %'] = df_pop_den['Sighting Odds %'].multiply(100)
+df_pop_den['Odds of Ufo Factor'] = df_pop_den['Odds of Ufo Factor'].multiply(100)
 
 
-df_pop_den['Odds of Ufo Factor'] = df_pop_den['Sighting Odds %'].round(decimals = 2)
+df_pop_den['Odds of Ufo Factor'] = df_pop_den['Odds of Ufo Factor'].round(decimals = 2)
 
 
 df_pop_rank_in = df_pop_den.drop_duplicates()
