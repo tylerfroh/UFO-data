@@ -239,7 +239,7 @@ with st.form('Form1'):
         filtered_df = df_search.loc[(df_search['Province']==field_choice) & (df_search['Summary'].str.contains(sentence, na=False))]
         st.dataframe(filtered_df[['Summary','Location','Province']].style.set_precision(0))
         
-  selected_prov = st.selectbox('Pick Your Province', (df_geo['Province'].unique()))
+selected_prov = st.selectbox('Pick Your Province', (df_geo['Province'].unique()))
 df_selected_Data = df_geo.loc[df_geo['Province'] == selected_prov]
 
 
