@@ -16,7 +16,7 @@ from PIL import Image
 
 
 image = Image.open('./ufo.png')
-st.image(image, height=200, width=100)
+st.image(image,  width=1000, height=1500)
 
 
 st.markdown(
