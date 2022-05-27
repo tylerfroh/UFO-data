@@ -65,11 +65,6 @@ df_geo['dentisty'] = df_geo['dentisty'].astype(int)
 df_geo['Duration'] = df_geo['Duration'].astype(str)
 df_geo["Population Density"] = df_geo["population"].div(df_geo["dentisty"].values)
 
-df_bar_data = df_geo
-df_bar_data['freq_count'] = df_geo.groupby('Shape')['Shape'].transform('count')
-df_bar_data = pd.DataFrame(df_bar_data, columns=['Shape','freq_count'])
-df_bar_data.dropna()
-
 df_pop_den = pd.DataFrame(df_geo, columns=['Location','Province','population','dentisty','Population Density','freq_count'])
 
 df_pop_den.drop_duplicates()
@@ -86,6 +81,15 @@ df_pop_den['Odds of Ufo Factor'] = df_pop_den['Odds of Ufo Factor'].round(decima
 df_pop_rank_in = df_pop_den.drop_duplicates()
 df_pop_rank = df_pop_rank_in.nlargest(n=25, columns=['Odds of Ufo Factor'])
 df_pop_rank['Rank'] = np.arange(len(df_pop_rank))
+
+
+
+df_bar_data = df_geo
+df_bar_data['freq_count'] = df_geo.groupby('Shape')['Shape'].transform('count')
+df_bar_data = pd.DataFrame(df_bar_data, columns=['Shape','freq_count'])
+df_bar_data.dropna()
+
+
 
 
 
