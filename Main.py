@@ -79,7 +79,7 @@ df_pop_den['Odds of Ufo Factor'] = df_pop_den['Odds of Ufo Factor'].round(decima
 
 
 df_pop_rank_in = df_pop_den.drop_duplicates()
-df_pop_rank = df_pop_rank_in.nlargest(n=25, columns=['Sighting Odds %'])
+df_pop_rank = df_pop_rank_in.nlargest(n=25, columns=['Odds of Ufo Factor'])
 df_pop_rank['Rank'] = np.arange(len(df_pop_rank))
 
 
