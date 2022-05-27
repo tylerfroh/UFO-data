@@ -220,7 +220,7 @@ st.dataframe(data=df_pop_rank)
 #TABLE SEARCH TOOL
 
 df_search = df_geo.sort_values(by=['Location'])
-field_office = df_search['Location'].unique()
+field_office = df_search['Province'].unique()
 
 with st.form('Form1'):
     col1, col2= st.columns(2)
@@ -230,9 +230,9 @@ with st.form('Form1'):
     with col2:
         field_choice = st.selectbox(label ='Select City:',options= field_office)
 
-    comments = df_search["Summary"].loc[df_search["Location"] == field_choice]
+    comments = df_search["Summary"].loc[df_search["Province"] == field_choice]
 
 
     if sentence:
-        filtered_df = df_search.loc[(df_search['Location']==field_choice) & (df_search['Summary'].str.contains(sentence, na=False))]
-        st.dataframe(filtered_df[['Summary','Location']].style.set_precision(0))
+        filtered_df = df_search.loc[(df_search['Province']==field_choice) & (df_search['Summary'].str.contains(sentence, na=False))]
+        st.dataframe(filtered_df[['Summary','Location','Province']].style.set_precision(0))
