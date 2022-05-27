@@ -46,7 +46,7 @@ st.write("""The analysis was performed to provide in-depth analysis into the gre
 df_data = pd.read_csv("C:/Repo/scrap-p/UFO.csv")
 
 
-df_geo = pd.read_excel("C:/Repo/scrap-p/UFO_merge.xlsx", sheet_name="Merge1")
+df_geo = pd.read_excel("./UFO_merge.xlsx", sheet_name="Merge1")
 
 df_geo = pd.DataFrame(df_geo, columns=['Summary', 'Shape',
                                        'Duration','Location','lat','lon','Province','population','dentisty'])
