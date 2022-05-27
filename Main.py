@@ -249,10 +249,10 @@ df_selected_Data = df_geo.loc[df_geo['Province'] == selected_prov]
 
 st.subheader('Frequency of shapes reported')
 
-#c = alt.Chart(df_bar_data).mark_bar().encode(
+c = alt.Chart(df_bar_data).mark_bar().encode(
      x='Shape', y='freq_count')
 
-#st.altair_chart(c, use_container_width=True)
+st.altair_chart(c, use_container_width=True)
 
 st.subheader('all data')
 st.dataframe(data=df_selected_Data)
