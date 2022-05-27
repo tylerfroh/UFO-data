@@ -75,7 +75,7 @@ df_pop_den["Sighting Odds %"] = df_pop_den["freq_count"].div(df_pop_den["Populat
 df_pop_den['Sighting Odds %'] = df_pop_den['Sighting Odds %'].multiply(100)
 
 
-df_pop_den['Sighting Odds %'] = df_pop_den['Sighting Odds %'].round(decimals = 2)
+df_pop_den['Odds of Ufo Factor'] = df_pop_den['Sighting Odds %'].round(decimals = 2)
 
 
 df_pop_rank_in = df_pop_den.drop_duplicates()
