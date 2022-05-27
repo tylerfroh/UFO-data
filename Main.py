@@ -96,7 +96,7 @@ df_geo['characters'] = df_geo['Summary'].str.len()
 df_geo['totalwords'] = df_geo['Summary'].str.split().str.len()
 
 # TWO WORD CODE
-st.subheader('1. Frequently used words')
+st.subheader('Frequently used words')
 st.write("""The most common two and three words provide a good insight into the ufo sightings.
  The analysis conducted returns the most relevant words from the ufo sightings. """)
 # TWO WORD VECTORIZER
@@ -209,15 +209,15 @@ def load_data(nrows):
 
     return df
 
-
-
-selected_prov = st.selectbox('Pick Your Province', (df_geo['Province'].unique()))
-df_selected_Data = df_geo.loc[df_geo['Province'] == selected_prov]
-
-st.dataframe(data=df_selected_Data)
+#map
+st.subheader('Map of sightings')
 st.map(df_geo)
 
+#population rank
+st.subheader('Top 25 most likely to see a ufo based on population density')
 st.dataframe(data=df_pop_rank)
+
+st.subheader('Key word search for comments - can Filter based on province')
 
 #TABLE SEARCH TOOL
 
@@ -238,3 +238,10 @@ with st.form('Form1'):
     if sentence:
         filtered_df = df_search.loc[(df_search['Province']==field_choice) & (df_search['Summary'].str.contains(sentence, na=False))]
         st.dataframe(filtered_df[['Summary','Location','Province']].style.set_precision(0))
+        
+  selected_prov = st.selectbox('Pick Your Province', (df_geo['Province'].unique()))
+df_selected_Data = df_geo.loc[df_geo['Province'] == selected_prov]
+
+
+st.subheader('all data')
+st.dataframe(data=df_selected_Data)
