@@ -43,7 +43,6 @@ st.header('Sneak peek into UFO sightings')
 st.write("""The analysis was performed to provide in-depth analysis into the great mystery """)
 
 
-df_data = pd.read_csv("C:/Repo/scrap-p/UFO.csv")
 
 
 df_geo = pd.read_excel("./UFO_merge.xlsx", sheet_name="Merge1")
