@@ -65,6 +65,11 @@ df_geo['dentisty'] = df_geo['dentisty'].astype(int)
 df_geo['Duration'] = df_geo['Duration'].astype(str)
 df_geo["Population Density"] = df_geo["population"].div(df_geo["dentisty"].values)
 
+df_bar_data = df_geo
+df_bar_data['freq_count'] = df_geo.groupby('Shape')['Shape'].transform('count')
+df_bar_data = pd.DataFrame(df_bar_data, columns=['Shape','freq_count'])
+df_bar_data.dropna()
+
 df_pop_den = pd.DataFrame(df_geo, columns=['Location','Province','population','dentisty','Population Density','freq_count'])
 
 df_pop_den.drop_duplicates()
@@ -242,6 +247,12 @@ with st.form('Form1'):
 selected_prov = st.selectbox('Pick Your Province', (df_geo['Province'].unique()))
 df_selected_Data = df_geo.loc[df_geo['Province'] == selected_prov]
 
+st.subheader('Frequency of shapes reported')
+
+c = alt.Chart(df_bar_data).mark_bar().encode(
+     x='Shape', y='freq_count')
+
+st.altair_chart(c, use_container_width=True)
 
 st.subheader('all data')
 st.dataframe(data=df_selected_Data)
