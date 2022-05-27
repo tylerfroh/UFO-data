@@ -15,7 +15,7 @@ from sklearn.metrics.pairwise import  cosine_similarity
 from PIL import Image
 
 
-image = Image.open('ufo.png')
+image = Image.open('./ufo.png')
 st.image(image)
 
 
